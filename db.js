@@ -1,13 +1,13 @@
-const { Sequelize } = require('sequelize')
+const { Sequelize } = require("sequelize");
 
 // database
 const sequelize = new Sequelize(
-  '', // Database name
-  '', // User
-  '', // Password
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
   {
-    host: '', // Host
-    dialect: 'postgres',
+    host: "", // Host
+    dialect: "postgres",
     dialectOptions: {
       ssl: {
         require: true,
@@ -15,13 +15,13 @@ const sequelize = new Sequelize(
       },
     },
     define: {
-      createdAt: 'added',
-      updatedAt: 'updated',
-    }
-  },
-)
+      createdAt: "added",
+      updatedAt: "updated",
+    },
+  }
+);
 
-sequelize.authenticate()
-sequelize.sync()
+sequelize.authenticate();
+sequelize.sync();
 
-module.exports = sequelize
+module.exports = sequelize;
